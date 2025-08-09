@@ -3,7 +3,7 @@
 import { useStore } from '../store';
 import type { User } from '../types';
 
-export async function loginAction(email: string, password: string) {
+export async function loginAction(email: string, _password: string) {
   const store = useStore.getState();
 
   try {
