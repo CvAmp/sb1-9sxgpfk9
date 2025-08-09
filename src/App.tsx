@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useStore } from './store';
 import { ErrorBoundary } from './components/ErrorBoundary';
 import { AuthGuard } from './components/AuthGuard';
 import { ImpersonationBar } from './components/ImpersonationBar';
@@ -26,10 +25,6 @@ import { MACDs } from './pages/MACDs';
 import { HelpAndFAQ } from './pages/HelpAndFAQ';
 
 function App() {
-  const { user } = useStore((state) => ({
-    user: state.user
-  }));
-
   return (
     <ThemeProvider>
       <Router>
@@ -51,6 +46,7 @@ function App() {
                       <Routes>
                         <Route path="/" element={<Calendar />} />
                         <Route path="/create-appointment" element={<CreateAppointment />} />
+                        <Route path="/create-acceleration" element={<CreateAcceleration />} />
                         <Route path="/appointment/:id" element={<AppointmentDetails />} />
                         <Route path="/accelerations" element={<Accelerations />} />
                         <Route path="/modify-accelerations" element={
